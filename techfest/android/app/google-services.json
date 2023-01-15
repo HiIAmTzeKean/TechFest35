@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "647868393283",
+    "project_id": "techfest23",
+    "storage_bucket": "techfest23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647868393283:android:47b4ea9be7191ee9e531f6",
+        "android_client_info": {
+          "package_name": "com.example.techfest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647868393283-dheqnf86a3tnd1qj9d2bgdtcd6ojbdi9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqtmAzM3Dc1OopoMnFVOJQY0PlBR7oios"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647868393283-dheqnf86a3tnd1qj9d2bgdtcd6ojbdi9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
