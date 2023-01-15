@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:techfest/cards/job_card.dart';
 import 'package:swipeable_card_stack/swipeable_card_stack.dart';
 
+import 'job_info_view.dart';
+
 class ExploreView extends StatelessWidget {
   const ExploreView({super.key});
 
@@ -10,33 +12,56 @@ class ExploreView extends StatelessWidget {
     SwipeableCardSectionController _cardController =
         SwipeableCardSectionController();
 
-    return Scaffold(
-      body: Column(
+    return SizedBox(
+      height: 550,
+      child: Column(
         children: [
           SwipeableCardsSection(
             cardController: _cardController,
             context: context,
             //add the first 3 cards (widgets)
-            items: const [
-              JobCard(color: Colors.blue),
-              JobCard(color: Colors.pink),
-              JobCard(color: Colors.yellow),
+            items: [
+              JobCard(),
+              JobCard(),
+              JobCard(),
             ],
             //Get card swipe event callbacks
             onCardSwiped: (dir, index, widget) {
               //Add the next card using _cardController
-              _cardController
-                  .addItem(const JobCard(color: Colors.lightGreenAccent));
+              switch (dir) {
+                case Direction.up:
+                  JobInfoView(jobCard: widget);
+                  break;
+                case Direction.left:
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(milliseconds: 3),
+                      content: Text("Swiped Left :("),
+                    ),
+                  );
+                  break;
+                case Direction.right:
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(milliseconds: 1),
+                      content: Text("Swiped Right :D"),
+                    ),
+                  );
+                  break;
+              }
+              print(dir);
+              print(index);
+              print(widget.color);
+              _cardController.addItem(JobCard());
 
               //Take action on the swiped widget based on the direction of swipe
               //Return false to not animate cards
             },
             //
-            enableSwipeUp: false,
+            enableSwipeUp: true,
             enableSwipeDown: false,
           ),
         ],
-        //other children
       ),
     );
   }
