@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "Jobs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "job_title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "company_logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "email_contact": {
+      "type": "email"
+    },
+    "job_tag": {
+      "type": "enumeration",
+      "enum": [
+        "Front-End Development",
+        "Full-Stack Development",
+        "Back-End Development"
+      ]
+    }
+  }
+}
