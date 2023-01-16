@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:swipeable_card_stack/swipe_controller.dart';
+import 'package:techfest/cards/user_card.dart';
 
-import '../cards/job_card.dart';
+class UserInfoView extends StatefulWidget {
+  final UserCard userCard;
 
-class JobInfoView extends StatefulWidget {
-  final JobCard jobCard;
-
-  const JobInfoView({required this.jobCard});
+  const UserInfoView({required this.userCard});
 
   @override
-  State<JobInfoView> createState() => _JobInfoViewState();
+  State<UserInfoView> createState() => _UserInfoViewState();
 }
 
-class _JobInfoViewState extends State<JobInfoView> {
+class _UserInfoViewState extends State<UserInfoView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Job Info'),
+        title: const Text('User Info'),
       ),
       body: Column(
         children: [

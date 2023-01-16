@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:techfest/cards/job_card.dart';
 import 'package:swipeable_card_stack/swipeable_card_stack.dart';
+import 'package:techfest/cards/user_card.dart';
+import 'package:techfest/views/user_info_view.dart';
 
 import 'job_info_view.dart';
 
@@ -21,7 +23,7 @@ class ExploreView extends StatelessWidget {
             context: context,
             //add the first 3 cards (widgets)
             items: [
-              JobCard(),
+              UserCard(),
               JobCard(),
               JobCard(),
             ],
@@ -30,7 +32,16 @@ class ExploreView extends StatelessWidget {
               //Add the next card using _cardController
               switch (dir) {
                 case Direction.up:
-                  JobInfoView(jobCard: widget);
+                  if (widget.toString() == 'JobCard') {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => JobInfoView(jobCard: widget),
+                    ));
+                  } else {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => UserInfoView(userCard: widget),
+                    ));
+                  }
+                  _cardController.appendItem(widget);
                   break;
                 case Direction.left:
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -49,9 +60,6 @@ class ExploreView extends StatelessWidget {
                   );
                   break;
               }
-              print(dir);
-              print(index);
-              print(widget.color);
               _cardController.addItem(JobCard());
 
               //Take action on the swiped widget based on the direction of swipe

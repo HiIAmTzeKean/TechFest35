@@ -49,7 +49,7 @@ class JobCard extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(
-            'assets/tablet.png',
+            'assets/logo.jpg',
             height: 200,
             width: 300,
           ),
