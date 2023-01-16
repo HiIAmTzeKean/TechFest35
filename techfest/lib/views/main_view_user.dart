@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:techfest/views/explore_view.dart';
 import 'package:techfest/views/matches_view.dart';
-import 'package:techfest/views/profile_view.dart';
+import 'package:techfest/views/userprofile_view.dart';
 
 import 'dart:developer' as devtools show log;
 
@@ -20,7 +20,7 @@ class _MainViewState extends State<MainView> {
   static const List<Widget> _widgetOptions = <Widget>[
     ExploreView(),
     MatchesView(),
-    ProfileView(),
+    UserProfileView(),
   ];
 
   void _onItemTapped(int index) {
